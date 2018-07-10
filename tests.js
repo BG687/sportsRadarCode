@@ -6,13 +6,14 @@ var deck = new Cards()
 deck.getAllCards()
 
 describe('Testing shuffle capability', function(){
-	let index = 27
-	let originalCard = deck.cards[index]
+	let index1 = 27
+	let index2 = 7
+	let originalCards = [deck.cards[index1], deck.cards[index2]]
 	deck.shuffle()
-	let newCard = deck.cards[index]
+	let newCards = [deck.cards[index1], deck.cards[index2]]
 
-	it('should return true if card has changed position after shuffling', function(){
-		var differentCards = originalCard.value != newCard.value && originalCard.suit != newCard.suit
+	it('should return true if cards have changed position after shuffling', function(){
+		var differentCards = originalCards[0] != newCards[0] || originalCards[1] != newCards[1]
 		assert.equal(differentCards, true)
 	})
 })
